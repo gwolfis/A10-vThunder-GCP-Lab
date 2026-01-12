@@ -1,0 +1,30 @@
+#cloud-config
+a10_blob: |
+  hostname ${hostname}
+  !
+  admin ${user_name} password ${user_password}
+  !
+  ip dns primary ${dns_primary}
+  !
+  timezone ${time_zone}
+  ntp server ${ntp_server}
+  !
+  interface management
+    ip address ${eth0_ip} 255.255.255.0
+    ip default-gateway ${eth0_gw}
+    exit
+  !
+  interface ethernet 1
+    ip address ${eth1_ip} 255.255.255.0 
+    enable
+    exit
+  !
+  interface ethernet 2 
+    ip address ${eth2_ip} 255.255.255.0
+    enable
+    exit
+  !
+  ! Default route via eth1 gateway
+  ip route 0.0.0.0 /0 ${eth1_gw}
+  !
+  wr mem

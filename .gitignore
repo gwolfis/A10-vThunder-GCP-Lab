@@ -1,0 +1,82 @@
+############################################
+# Terraform
+############################################
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Local variable files can contain secrets
+*.tfvars
+!terraform.tfvars.example
+
+# Terraform override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Keep provider lock file committed
+!.terraform.lock.hcl
+
+############################################
+# GCP credentials and keys
+############################################
+terraform-sa.json
+**/terraform-sa.json
+*service-account*.json
+*service_account*.json
+*sa*.json
+*credentials*.json
+
+# gcloud local config
+**/.config/gcloud/**
+**/gcloud/**
+
+# Common key and cert formats
+*.pem
+*.p12
+*.pfx
+*.key
+*.crt
+*.cer
+*.jks
+*.keystore
+*.ppk
+
+# Env files
+.env
+.env.*
+*.env
+
+############################################
+# Logs and temporary files
+############################################
+*.log
+*.tmp
+*.bak
+*.swp
+
+############################################
+# MkDocs build output
+############################################
+site/
+.cache/
+
+############################################
+# Python artifacts
+############################################
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+############################################
+# OS and IDE
+############################################
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

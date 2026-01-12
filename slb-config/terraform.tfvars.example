@@ -1,0 +1,4 @@
+# SLB-CONFIG - TERRAFROM.TFVARS
+
+a10_username     = "admin"
+a10_password     = "<set-vthunder-strong-password>"       # Generate a strong password 

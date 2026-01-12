@@ -1,0 +1,17 @@
+[Unit]
+Description=A10 GCP forwarding rule failover watcher
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/a10-failover/env
+ExecStart=/usr/bin/env stdbuf -oL -eL bash /usr/local/bin/a10-failover.sh
+Restart=always
+RestartSec=5
+User=root
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=a10-failover
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/snap/bin
+
+[Install]
+WantedBy=multi-user.target

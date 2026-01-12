@@ -1,0 +1,641 @@
+[shared] thunder.go:62: Connect to THUNDER device: host=35.204.127.231, partition=shared user=admin
+[shared] http_util.go:105: POST > https://35.204.127.231/axapi/v3/a[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "authresponse" : {
+     "signature":"61090000009e00fedd3c66203afc5ca9",
+     "description":"the signature should be set in Authorization header for following request."
+   }
+}
+[shared] thunder.go:68: Connected
+[shared] thunder.go:82: current partition: shared
+[shared] resource_slb_template_server_ssl.go:184: resourceSlbTemplateServerSslCreate()
+[shared] slb_template_server_ssl.go:97: SlbTemplateServerSsl::Post
+[shared] slb_template_server_ssl.go:104: payload: {"server-ssl":{"certificate":{"cert":"a10demo","key":"a10demo"},"name":"TP-SSSL-A10DEMO-EDGE-TH1"}}
+[shared] http_util.go:105: POST > https://34.7.199.247/axapi/v3/slb/template/server-ssl
+[shared] resource_slb_server.go:259: resourceSlbServerCreate()
+[shared] slb_server.go:121: SlbServer::Post
+[shared] slb_server.go:128: payload: {"server":{"host":"10.10.12.20","name":"backend-edge-1-TH1","port-list":[{"port-number":80,"protocol":"tcp"},{"port-number":443,"protocol":"tcp"}]}}
+[shared] http_util.go:105: POST > https://34.7.199.247/axapi/v3/slb/server
+[shared] resource_slb_template_client_ssl.go:1540: resourceSlbTemplateClientSslCreate()
+[shared] slb_template_client_ssl.go:658: SlbTemplateClientSsl::Post
+[shared] slb_template_client_ssl.go:665: payload: {"client-ssl":{"certificate-list":[{"cert":"a10demo","key":"a10demo"}],"name":"TP-CSSL-A10DEMO-EDGE-TH1"}}
+[shared] http_util.go:105: POST > https://34.7.199.247/axapi/v3/slb/template/client-ssl
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "server": {
+    "name":"backend-edge-1-TH1",
+    "host":"10.10.12.20",
+    "use-aam-server":0,
+    "action":"enable",
+    "template-server":"default",
+    "conn-limit":64000000,
+    "no-logging":0,
+    "weight":1,
+    "slow-start":0,
+    "spoofing-cache":0,
+    "stats-data-action":"stats-data-enable",
+    "extended-stats":0,
+    "uuid":"a0227dd6-ef8e-11f0-92cc-42010a0a0a0a",
+    "port-list": [
+      {
+        "port-number":80,
+        "protocol":"tcp",
+        "range":0,
+        "template-port":"default",
+        "action":"enable",
+        "no-ssl":0,
+        "support-http2":0,
+        "weight":1,
+        "conn-limit":64000000,
+        "no-logging":0,
+        "stats-data-action":"stats-data-enable",
+        "extended-stats":0,
+        "uuid":"a0228bb4-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/server/backend-edge-1-TH1/port/80+tcp"
+      },
+      {
+        "port-number":443,
+        "protocol":"tcp",
+        "range":0,
+        "template-port":"default",
+        "action":"enable",
+        "no-ssl":0,
+        "support-http2":0,
+        "weight":1,
+        "conn-limit":64000000,
+        "no-logging":0,
+        "stats-data-action":"stats-data-enable",
+        "extended-stats":0,
+        "uuid":"a022930c-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/server/backend-edge-1-TH1/port/443+tcp"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/server/backend-edge-1-TH1"
+  }
+}
+[shared] resource_slb_server.go:306: resourceSlbServerRead()
+[shared] slb_server.go:134: SlbServer::Get
+[shared] http_util.go:105: GET > https://34.7.199.247/axapi/v3/slb/server/backend-edge-1-TH1
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "server-ssl": {
+    "name":"TP-SSSL-A10DEMO-EDGE-TH1",
+    "enable-tls-alert-logging":0,
+    "handshake-logging-enable":0,
+    "close-notify":0,
+    "session-ticket-enable":0,
+    "version":33,
+    "dgversion":31,
+    "ocsp-stapling":0,
+    "use-client-sni":0,
+    "renegotiation-disable":0,
+    "session-cache-size":0,
+    "early-data":0,
+    "uuid":"a023373a-ef8e-11f0-92cc-42010a0a0a0a",
+    "certificate": {
+      "cert":"a10demo",
+      "key":"a10demo",
+      "uuid":"a023af94-ef8e-11f0-92cc-42010a0a0a0a",
+      "a10-url":"/axapi/v3/slb/template/server-ssl/TP-SSSL-A10DEMO-EDGE-TH1/certificate"
+    },
+    "a10-url":"/axapi/v3/slb/template/server-ssl/TP-SSSL-A10DEMO-EDGE-TH1"
+  }
+}
+[shared] resource_slb_template_server_ssl.go:231: resourceSlbTemplateServerSslRead()
+[shared] slb_template_server_ssl.go:110: SlbTemplateServerSsl::Get
+[shared] http_util.go:105: GET > https://34.7.199.247/axapi/v3/slb/template/server-ssl/TP-SSSL-A10DEMO-EDGE-TH1
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "client-ssl": {
+    "name":"TP-CSSL-A10DEMO-EDGE-TH1",
+    "local-logging":0,
+    "ocsp-stapling":0,
+    "client-certificate":"Ignore",
+    "close-notify":0,
+    "enable-tls-alert-logging":0,
+    "handshake-logging-enable":0,
+    "server-name-auto-map":0,
+    "sni-bypass-missing-cert":0,
+    "sni-bypass-expired-cert":0,
+    "sni-bypass-enable-log":0,
+    "direct-client-server-auth":0,
+    "session-cache-size":0,
+    "session-cache-timeout":0,
+    "session-ticket-disable":0,
+    "session-ticket-lifetime":0,
+    "ssl-false-start-disable":0,
+    "disable-sslv3":0,
+    "version":33,
+    "dgversion":31,
+    "renegotiation-disable":0,
+    "authorization":0,
+    "early-data":0,
+    "ja3-enable":0,
+    "uuid":"a084fe5c-ef8e-11f0-92cc-42010a0a0a0a",
+    "certificate-list": [
+      {
+        "cert":"a10demo",
+        "key":"a10demo",
+        "uuid":"a0850e7e-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/template/client-ssl/TP-CSSL-A10DEMO-EDGE-TH1/certificate/a10demo"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/template/client-ssl/TP-CSSL-A10DEMO-EDGE-TH1"
+  }
+}
+[shared] resource_slb_template_client_ssl.go:1587: resourceSlbTemplateClientSslRead()
+[shared] slb_template_client_ssl.go:671: SlbTemplateClientSsl::Get
+[shared] http_util.go:105: GET > https://34.7.199.247/axapi/v3/slb/template/client-ssl/TP-CSSL-A10DEMO-EDGE-TH1
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "server": {
+    "name":"backend-edge-1-TH1",
+    "host":"10.10.12.20",
+    "use-aam-server":0,
+    "action":"enable",
+    "template-server":"default",
+    "conn-limit":64000000,
+    "no-logging":0,
+    "weight":1,
+    "slow-start":0,
+    "spoofing-cache":0,
+    "stats-data-action":"stats-data-enable",
+    "extended-stats":0,
+    "uuid":"a0227dd6-ef8e-11f0-92cc-42010a0a0a0a",
+    "port-list": [
+      {
+        "port-number":80,
+        "protocol":"tcp",
+        "range":0,
+        "template-port":"default",
+        "action":"enable",
+        "no-ssl":0,
+        "support-http2":0,
+        "weight":1,
+        "conn-limit":64000000,
+        "no-logging":0,
+        "stats-data-action":"stats-data-enable",
+        "extended-stats":0,
+        "uuid":"a0228bb4-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/server/backend-edge-1-TH1/port/80+tcp"
+      },
+      {
+        "port-number":443,
+        "protocol":"tcp",
+        "range":0,
+        "template-port":"default",
+        "action":"enable",
+        "no-ssl":0,
+        "support-http2":0,
+        "weight":1,
+        "conn-limit":64000000,
+        "no-logging":0,
+        "stats-data-action":"stats-data-enable",
+        "extended-stats":0,
+        "uuid":"a022930c-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/server/backend-edge-1-TH1/port/443+tcp"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/server/backend-edge-1-TH1"
+  }
+}
+[shared] http_util.go:130: axApi response:
+ {
+  "server-ssl": {
+    "name":"TP-SSSL-A10DEMO-EDGE-TH1",
+    "enable-tls-alert-logging":0,
+    "handshake-logging-enable":0,
+    "close-notify":0,
+    "session-ticket-enable":0,
+    "version":33,
+    "dgversion":31,
+    "ocsp-stapling":0,
+    "use-client-sni":0,
+    "renegotiation-disable":0,
+    "session-cache-size":0,
+    "early-data":0,
+    "uuid":"a023373a-ef8e-11f0-92cc-42010a0a0a0a",
+    "certificate": {
+      "cert":"a10demo",
+      "key":"a10demo",
+      "uuid":"a023af94-ef8e-11f0-92cc-42010a0a0a0a",
+      "a10-url":"/axapi/v3/slb/template/server-ssl/TP-SSSL-A10DEMO-EDGE-TH1/certificate"
+    },
+    "a10-url":"/axapi/v3/slb/template/server-ssl/TP-SSSL-A10DEMO-EDGE-TH1"
+  }
+}
+[shared] resource_slb_service_group.go:273: resourceSlbServiceGroupCreate()
+[shared] resource_slb_service_group.go:273: resourceSlbServiceGroupCreate()
+[shared] slb_service_group.go:123: SlbServiceGroup::Post
+[shared] slb_service_group.go:123: SlbServiceGroup::Post
+[shared] slb_service_group.go:130: payload: {"service-group":{"member-list":[{"name":"backend-edge-1-TH1","port":443}],"name":"SG-HTTPS-EDGE-TH1","protocol":"tcp"}}
+[shared] http_util.go:105: POST > https://34.7.199.247/axapi/v3/slb/service-group
+[shared] slb_service_group.go:130: payload: {"service-group":{"member-list":[{"name":"backend-edge-1-TH1","port":80}],"name":"SG-HTTP-EDGE-TH1","protocol":"tcp"}}
+[shared] http_util.go:105: POST > https://34.7.199.247/axapi/v3/slb/service-group
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "client-ssl": {
+    "name":"TP-CSSL-A10DEMO-EDGE-TH1",
+    "local-logging":0,
+    "ocsp-stapling":0,
+    "client-certificate":"Ignore",
+    "close-notify":0,
+    "enable-tls-alert-logging":0,
+    "handshake-logging-enable":0,
+    "server-name-auto-map":0,
+    "sni-bypass-missing-cert":0,
+    "sni-bypass-expired-cert":0,
+    "sni-bypass-enable-log":0,
+    "direct-client-server-auth":0,
+    "session-cache-size":0,
+    "session-cache-timeout":0,
+    "session-ticket-disable":0,
+    "session-ticket-lifetime":0,
+    "ssl-false-start-disable":0,
+    "disable-sslv3":0,
+    "version":33,
+    "dgversion":31,
+    "renegotiation-disable":0,
+    "authorization":0,
+    "early-data":0,
+    "ja3-enable":0,
+    "uuid":"a084fe5c-ef8e-11f0-92cc-42010a0a0a0a",
+    "certificate-list": [
+      {
+        "cert":"a10demo",
+        "key":"a10demo",
+        "uuid":"a0850e7e-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/template/client-ssl/TP-CSSL-A10DEMO-EDGE-TH1/certificate/a10demo"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/template/client-ssl/TP-CSSL-A10DEMO-EDGE-TH1"
+  }
+}
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "service-group": {
+    "name":"SG-HTTPS-EDGE-TH1",
+    "protocol":"tcp",
+    "lb-method":"round-robin",
+    "stateless-auto-switch":0,
+    "reset-on-server-selection-fail":0,
+    "priority-affinity":0,
+    "backup-server-event-log":0,
+    "strict-select":0,
+    "stats-data-action":"stats-data-enable",
+    "extended-stats":0,
+    "traffic-replication-mirror":0,
+    "sample-rsp-time":0,
+    "persist-scoring":"global",
+    "uuid":"a1f23c64-ef8e-11f0-92cc-42010a0a0a0a",
+    "member-list": [
+      {
+        "name":"backend-edge-1-TH1",
+        "port":443,
+        "member-state":"enable",
+        "member-stats-data-disable":0,
+        "member-priority":1,
+        "uuid":"a1f248c6-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/service-group/SG-HTTPS-EDGE-TH1/member/backend-edge-1-TH1+443"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/service-group/SG-HTTPS-EDGE-TH1"
+  }
+}
+[shared] resource_slb_service_group.go:320: resourceSlbServiceGroupRead()
+[shared] slb_service_group.go:136: SlbServiceGroup::Get
+[shared] http_util.go:105: GET > https://34.7.199.247/axapi/v3/slb/service-group/SG-HTTPS-EDGE-TH1
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "service-group": {
+    "name":"SG-HTTP-EDGE-TH1",
+    "protocol":"tcp",
+    "lb-method":"round-robin",
+    "stateless-auto-switch":0,
+    "reset-on-server-selection-fail":0,
+    "priority-affinity":0,
+    "backup-server-event-log":0,
+    "strict-select":0,
+    "stats-data-action":"stats-data-enable",
+    "extended-stats":0,
+    "traffic-replication-mirror":0,
+    "sample-rsp-time":0,
+    "persist-scoring":"global",
+    "uuid":"a1f30f2c-ef8e-11f0-92cc-42010a0a0a0a",
+    "member-list": [
+      {
+        "name":"backend-edge-1-TH1",
+        "port":80,
+        "member-state":"enable",
+        "member-stats-data-disable":0,
+        "member-priority":1,
+        "uuid":"a1f31a94-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/service-group/SG-HTTP-EDGE-TH1/member/backend-edge-1-TH1+80"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/service-group/SG-HTTP-EDGE-TH1"
+  }
+}
+[shared] resource_slb_service_group.go:320: resourceSlbServiceGroupRead()
+[shared] slb_service_group.go:136: SlbServiceGroup::Get
+[shared] http_util.go:105: GET > https://34.7.199.247/axapi/v3/slb/service-group/SG-HTTP-EDGE-TH1
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "service-group": {
+    "name":"SG-HTTPS-EDGE-TH1",
+    "protocol":"tcp",
+    "lb-method":"round-robin",
+    "stateless-auto-switch":0,
+    "reset-on-server-selection-fail":0,
+    "priority-affinity":0,
+    "backup-server-event-log":0,
+    "strict-select":0,
+    "stats-data-action":"stats-data-enable",
+    "extended-stats":0,
+    "traffic-replication-mirror":0,
+    "sample-rsp-time":0,
+    "persist-scoring":"global",
+    "uuid":"a1f23c64-ef8e-11f0-92cc-42010a0a0a0a",
+    "member-list": [
+      {
+        "name":"backend-edge-1-TH1",
+        "port":443,
+        "member-state":"enable",
+        "member-stats-data-disable":0,
+        "member-priority":1,
+        "uuid":"a1f248c6-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/service-group/SG-HTTPS-EDGE-TH1/member/backend-edge-1-TH1+443"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/service-group/SG-HTTPS-EDGE-TH1"
+  }
+}
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "service-group": {
+    "name":"SG-HTTP-EDGE-TH1",
+    "protocol":"tcp",
+    "lb-method":"round-robin",
+    "stateless-auto-switch":0,
+    "reset-on-server-selection-fail":0,
+    "priority-affinity":0,
+    "backup-server-event-log":0,
+    "strict-select":0,
+    "stats-data-action":"stats-data-enable",
+    "extended-stats":0,
+    "traffic-replication-mirror":0,
+    "sample-rsp-time":0,
+    "persist-scoring":"global",
+    "uuid":"a1f30f2c-ef8e-11f0-92cc-42010a0a0a0a",
+    "member-list": [
+      {
+        "name":"backend-edge-1-TH1",
+        "port":80,
+        "member-state":"enable",
+        "member-stats-data-disable":0,
+        "member-priority":1,
+        "uuid":"a1f31a94-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/service-group/SG-HTTP-EDGE-TH1/member/backend-edge-1-TH1+80"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/service-group/SG-HTTP-EDGE-TH1"
+  }
+}
+[shared] resource_slb_vi[shared] resource_slb_virtual_server.go:808: resourceSlbVirtualServerCreate()
+[shared] slb_virtual_server.go:304: SlbVirtualServer::Post
+[shared] slb_virtual_server.go:311: payload: {"virtual-server":{"ip-address":"34.34.29.249","name":"VIP-WEB-EDGE-TH2","port-list":[{"port-number":80,"protocol":"http","auto":1,"service-group":"SG-HTTP-EDGE-TH2"},{"port-number":443,"protocol":"https","auto":1,"service-group":"SG-HTTPS-EDGE-TH2","template-server-ssl":"TP-SSSL-A10DEMO-EDGE-TH2","template-client-ssl":"TP-CSSL-A10DEMO-EDGE-TH2"}]}}
+[shared] http_util.go:105: POST > https://35.204.127.231/ax[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "virtual-server": {
+    "name":"VIP-WEB-EDGE-TH1",
+    "ip-address":"34.34.29.249",
+    "enable-disable-action":"enable",
+    "redistribution-flagged":0,
+    "arp-disable":0,
+    "stats-data-action":"stats-data-enable",
+    "extended-stats":0,
+    "disable-vip-adv":0,
+    "uuid":"a68aace8-ef8e-11f0-92cc-42010a0a0a0a",
+    "port-list": [
+      {
+        "port-number":80,
+        "protocol":"http",
+        "range":0,
+        "optimization-level":"0",
+        "support-http2":0,
+        "conn-limit":64000000,
+        "reset":0,
+        "no-logging":0,
+        "use-alternate-port":0,
+        "action":"enable",
+        "def-selection-if-pref-failed":"def-selection-if-pref-failed",
+        "skip-rev-hash":0,
+        "message-switching":0,
+        "force-routing-mode":0,
+        "reset-on-server-selection-fail":0,
+        "clientip-sticky-nat":0,
+        "extended-stats":0,
+        "snat-on-vip":0,
+        "stats-data-action":"stats-data-enable",
+        "syn-cookie":0,
+        "showtech-print-extended-stats":0,
+        "attack-detection":0,
+        "no-auto-up-on-aflex":0,
+        "auto":1,
+        "precedence":0,
+        "ip-smart-rr":0,
+        "use-cgnv6":0,
+        "service-group":"SG-HTTP-EDGE-TH1",
+        "ipinip":0,
+        "rtp-sip-call-id-match":0,
+        "use-rcv-hop-for-resp":0,
+        "use-rcv-hop-group":0,
+        "redirect-to-https":0,
+        "template-virtual-port":"default",
+        "no-dest-nat":0,
+        "cpu-compute":0,
+        "memory-compute":0,
+        "substitute-source-mac":0,
+        "aflex-table-entry-syn-disable":0,
+        "gtp-session-lb":0,
+        "reply-acme-challenge":0,
+        "uuid":"a68ac930-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/virtual-server/VIP-WEB-EDGE-TH1/port/80+http"
+      },
+      {
+        "port-number":443,
+        "protocol":"https",
+        "range":0,
+        "support-http2":0,
+        "conn-limit":64000000,
+        "reset":0,
+        "no-logging":0,
+        "action":"enable",
+        "def-selection-if-pref-failed":"def-selection-if-pref-failed",
+        "skip-rev-hash":0,
+        "message-switching":0,
+        "force-routing-mode":0,
+        "reset-on-server-selection-fail":0,
+        "clientip-sticky-nat":0,
+        "extended-stats":0,
+        "snat-on-vip":0,
+        "stats-data-action":"stats-data-enable",
+        "syn-cookie":0,
+        "showtech-print-extended-stats":0,
+        "attack-detection":0,
+        "no-auto-up-on-aflex":0,
+        "auto":1,
+        "precedence":0,
+        "ip-smart-rr":0,
+        "use-cgnv6":0,
+        "service-group":"SG-HTTPS-EDGE-TH1",
+        "ipinip":0,
+        "rtp-sip-call-id-match":0,
+        "use-rcv-hop-for-resp":0,
+        "use-rcv-hop-group":0,
+        "redirect-to-https":0,
+        "template-server-ssl":"TP-SSSL-A10DEMO-EDGE-TH1",
+        "template-client-ssl":"TP-CSSL-A10DEMO-EDGE-TH1",
+        "template-virtual-port":"default",
+        "use-default-if-no-server":0,
+        "no-dest-nat":0,
+        "cpu-compute":0,
+        "memory-compute":0,
+        "substitute-source-mac":0,
+        "aflex-table-entry-syn-disable":0,
+        "gtp-session-lb":0,
+        "reply-acme-challenge":0,
+        "uuid":"a68af702-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/virtual-server/VIP-WEB-EDGE-TH1/port/443+https"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/virtual-server/VIP-WEB-EDGE-TH1"
+  }
+}
+[shared] resource_slb_virtual_server.go:855: resourceSlbVirtualServerRead()
+[shared] slb_virtual_server.go:317: SlbVirtualServer::Get
+[shared] http_util.go:105: GET > https://34.7.199.247/axapi/v3/slb/virtual-server/VIP-WEB-EDGE-TH1
+[shared] http_util.go:125: HTTP status 200 OK
+[shared] http_util.go:130: axApi response:
+ {
+  "virtual-server": {
+    "name":"VIP-WEB-EDGE-TH1",
+    "ip-address":"34.34.29.249",
+    "enable-disable-action":"enable",
+    "redistribution-flagged":0,
+    "arp-disable":0,
+    "stats-data-action":"stats-data-enable",
+    "extended-stats":0,
+    "disable-vip-adv":0,
+    "uuid":"a68aace8-ef8e-11f0-92cc-42010a0a0a0a",
+    "port-list": [
+      {
+        "port-number":80,
+        "protocol":"http",
+        "range":0,
+        "optimization-level":"0",
+        "support-http2":0,
+        "conn-limit":64000000,
+        "reset":0,
+        "no-logging":0,
+        "use-alternate-port":0,
+        "action":"enable",
+        "def-selection-if-pref-failed":"def-selection-if-pref-failed",
+        "skip-rev-hash":0,
+        "message-switching":0,
+        "force-routing-mode":0,
+        "reset-on-server-selection-fail":0,
+        "clientip-sticky-nat":0,
+        "extended-stats":0,
+        "snat-on-vip":0,
+        "stats-data-action":"stats-data-enable",
+        "syn-cookie":0,
+        "showtech-print-extended-stats":0,
+        "attack-detection":0,
+        "no-auto-up-on-aflex":0,
+        "auto":1,
+        "precedence":0,
+        "ip-smart-rr":0,
+        "use-cgnv6":0,
+        "service-group":"SG-HTTP-EDGE-TH1",
+        "ipinip":0,
+        "rtp-sip-call-id-match":0,
+        "use-rcv-hop-for-resp":0,
+        "use-rcv-hop-group":0,
+        "redirect-to-https":0,
+        "template-virtual-port":"default",
+        "no-dest-nat":0,
+        "cpu-compute":0,
+        "memory-compute":0,
+        "substitute-source-mac":0,
+        "aflex-table-entry-syn-disable":0,
+        "gtp-session-lb":0,
+        "reply-acme-challenge":0,
+        "uuid":"a68ac930-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/virtual-server/VIP-WEB-EDGE-TH1/port/80+http"
+      },
+      {
+        "port-number":443,
+        "protocol":"https",
+        "range":0,
+        "support-http2":0,
+        "conn-limit":64000000,
+        "reset":0,
+        "no-logging":0,
+        "action":"enable",
+        "def-selection-if-pref-failed":"def-selection-if-pref-failed",
+        "skip-rev-hash":0,
+        "message-switching":0,
+        "force-routing-mode":0,
+        "reset-on-server-selection-fail":0,
+        "clientip-sticky-nat":0,
+        "extended-stats":0,
+        "snat-on-vip":0,
+        "stats-data-action":"stats-data-enable",
+        "syn-cookie":0,
+        "showtech-print-extended-stats":0,
+        "attack-detection":0,
+        "no-auto-up-on-aflex":0,
+        "auto":1,
+        "precedence":0,
+        "ip-smart-rr":0,
+        "use-cgnv6":0,
+        "service-group":"SG-HTTPS-EDGE-TH1",
+        "ipinip":0,
+        "rtp-sip-call-id-match":0,
+        "use-rcv-hop-for-resp":0,
+        "use-rcv-hop-group":0,
+        "redirect-to-https":0,
+        "template-server-ssl":"TP-SSSL-A10DEMO-EDGE-TH1",
+        "template-client-ssl":"TP-CSSL-A10DEMO-EDGE-TH1",
+        "template-virtual-port":"default",
+        "use-default-if-no-server":0,
+        "no-dest-nat":0,
+        "cpu-compute":0,
+        "memory-compute":0,
+        "substitute-source-mac":0,
+        "aflex-table-entry-syn-disable":0,
+        "gtp-session-lb":0,
+        "reply-acme-challenge":0,
+        "uuid":"a68af702-ef8e-11f0-92cc-42010a0a0a0a",
+        "a10-url":"/axapi/v3/slb/virtual-server/VIP-WEB-EDGE-TH1/port/443+https"
+      }
+    ],
+    "a10-url":"/axapi/v3/slb/virtual-server/VIP-WEB-EDGE-TH1"
+  }
+}
+ver/VIP-WEB-EDGE-TH2"
+  }
+}

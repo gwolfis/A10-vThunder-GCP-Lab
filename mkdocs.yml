@@ -1,0 +1,18 @@
+site_name: A10 vThunder GCP Lab
+site_url: https://a10-gcp-lab.readthedocs.io
+
+repo_url: https://github.com/<your-org>/a10-gcp-lab
+repo_name: a10-gcp-lab
+
+theme:
+  name: readthedocs
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - gcp-infra: gcp-infra.md
+  - slb-config: slb-config.md
+  - gcp-edge: gcp-edge.md
+  - failover: failover.md
+  - cleanup: cleanup.md
+  - Troubleshooting: troubleshooting.md

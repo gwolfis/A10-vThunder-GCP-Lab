@@ -1,0 +1,42 @@
+# GCP-INFRA - TERRAFORM.TFVARS
+
+# GCP CREDs
+project_id = "a10demo"
+region     = "europe-west4"                             # https://docs.cloud.google.com/compute/docs/regions-zones/viewing-regions-zones#gcloud
+zone       = "europe-west4-a"
+
+# Tags
+environment = "gcp"
+deployment  = "demo"
+owner       = "name@example.com"                        # Include a name for tracking who owns the build
+
+# VPCs and Networks
+vpc_a10_management_name = "vpc-adc-management-a"
+vpc_a10_external_name   = "vpc-adc-external-a"
+vpc_a10_internal_name   = "vpc-adc-internal-a"
+subnet_management_name  = "vpc-adc-management-a"
+subnet_external_name    = "vpc-adc-external-a"
+subnet_internal_name    = "vpc-adc-internal-a"
+
+subnet_ip_management = "10.10.10.0/24"
+subnet_ip_external   = "10.10.11.0/24"
+subnet_ip_internal   = "10.10.12.0/24"
+
+source_ip_ranges = ["0.0.0.0/0","10.0.0.0/8"]           # It's a security best-practise to narrow down 0.0.0.0/0 to your own sourceIP.
+                                                        # 10.0.0.0/8 is absolute in this context, but will give access between all GCP defined subnets.
+
+# Thunder Deployment
+adc_count        = 1
+a10_machine_type = "n2-standard-4"
+a10_image        = "projects/mpi-a10networks-public-396315/global/images/vthunder-602-b68-20mbps-lic"
+
+# Thunder Runtime-init
+thunder_hostname  = "thunder-1"
+a10_username      = "admin"
+a10_password      = "<set-vthunder-strong-password>"       # Generate a strong password 
+dns_primary       = "8.8.8.8"
+time_zone         = "Europe/Amsterdam"                   # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+ntp_server        = "pool.ntp.org"
+
+# Backend
+backend_machine_type = "e2-micro"
