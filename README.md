@@ -4,7 +4,7 @@ Terraform examples for deploying an A10 vThunder ADC on Google Cloud Platform.
 
 Full documentation including prerequisites and step by step guides is hosted on Read the Docs
 
-👉 https://a10-gcp-lab.readthedocs.io
+👉[ https://a10-vthunder-gcp-lab.readthedocs.io](https://a10-vthunder-gcp-lab.readthedocs.io/en/latest/)
 
 Quick start
 
