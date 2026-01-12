@@ -30,20 +30,16 @@ provider "google" {
   credentials = file(pathexpand("~/secrets/terraform-sa.json"))
 }
 
-locals {
-  mgmt_ip_map = data.terraform_remote_state.infra.outputs.a10_mgmt_ip_map
-}
-
 provider "thunder" {
   alias    = "th1"
-  address  = lookup(local.mgmt_ip_map, "vthunder-1", "127.0.0.1")
+  address  = local.adc1_mgmt_ip
   username = var.a10_username
   password = var.a10_password
 }
 
 provider "thunder" {
   alias    = "th2"
-  address  = lookup(local.mgmt_ip_map, "vthunder-2", "127.0.0.1")
+  address  = local.adc2_mgmt_ip
   username = var.a10_username
   password = var.a10_password
 }

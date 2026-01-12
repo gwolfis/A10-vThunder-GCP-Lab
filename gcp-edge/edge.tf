@@ -4,7 +4,14 @@ resource "google_compute_address" "vip_web_ext" {
 }
 
 locals {
-  adc_keys = toset(var.configure_adcs)
+  mgmt_ip_map = data.terraform_remote_state.infra.outputs.a10_mgmt_public_ip_map
+  adc_keys    = sort(keys(local.mgmt_ip_map))
+
+  adc1_key = local.adc_keys[0]
+  adc2_key = length(local.adc_keys) > 1 ? local.adc_keys[1] : local.adc_keys[0]
+
+  adc1_mgmt_ip = local.mgmt_ip_map[local.adc1_key]
+  adc2_mgmt_ip = local.mgmt_ip_map[local.adc2_key]
 
   target_instance_name_map = {
     for k in local.adc_keys :
@@ -16,8 +23,12 @@ locals {
     k => "https://www.googleapis.com/compute/v1/projects/${data.terraform_remote_state.infra.outputs.project_id}/zones/${data.terraform_remote_state.infra.outputs.zone}/targetInstances/${name}"
   }
 
-  active_target_instance_self_link = local.target_instance_self_link_map[var.edge_active_adc_key]
+  edge_active_adc_key_normalized = length(trimspace(var.edge_active_adc_key)) > 0 ? replace(var.edge_active_adc_key, "_", "-") : local.adc1_key
+  edge_active_adc_key_effective  = contains(local.adc_keys, local.edge_active_adc_key_normalized) ? local.edge_active_adc_key_normalized : local.adc1_key
+
+  active_target_instance_self_link = local.target_instance_self_link_map[local.edge_active_adc_key_effective]
 }
+
 
 
 resource "null_resource" "a10_target_instance" {

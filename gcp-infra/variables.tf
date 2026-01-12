@@ -25,7 +25,23 @@ variable "subnet_ip_internal" {  default = "10.0.12.0/24" }
 variable "source_ip_ranges" { default = ["0.0.0.0/0"]}
 
 # Thunder Deployment
-variable "adc_count" { default = 1 }
+variable "adc_count" {
+  description = "Number of vThunder ADCs to deploy."
+  type        = number
+  default     = 1
+
+  validation {
+    condition     = var.adc_count == 1 || var.adc_count == 2
+    error_message = "adc_count must be 1 or 2."
+  }
+}
+
+variable "configure_adcs" {
+  description = "Optional override list of ADC keys for example [\"vthunder_1\",\"vthunder_2\"]. If not set it is derived from adc_count."
+  type        = list(string)
+  default     = null
+}
+
 variable "adc_hostname_prefix" { default = "vthunder"}
 
 variable "adc_mgmt_host_start" { default = 10 }

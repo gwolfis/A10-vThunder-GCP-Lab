@@ -2,3 +2,8 @@
 
 a10_username = "admin"
 a10_password = "<set-vthunder-strong-password>"       # Generate a strong password 
+
+configure_adcs      = ["vthunder-1"]                  # Default setting when deploying 1 ADC.
+# configure_adcs      = ["vthunder-1", "vthunder-2"]      # Use this setting when deploying 2 ADCs. un-# this one and # the 1 ADC "configure_adcs = ["vthunder-1"]" setting
+edge_active_adc_key = "vthunder-1"
+a10_cert_name        = "a10demo"

@@ -115,6 +115,24 @@ output "a10_internal_ip" {
   value       = google_compute_instance.a10_vthunder[local.primary_adc_key].network_interface[2].network_ip
 }
 
+output "configure_adcs" {
+  description = "ADC keys in deployment order."
+  value       = sort(keys(local.adc_instances))
+}
+
+output "adc_count" {
+  description = "Number of ADCs deployed."
+  value       = var.adc_count
+}
+
+output "a10_mgmt_public_ip_map" {
+  description = "Public management IP per ADC key used for aXAPI."
+  value = {
+    for k, vm in google_compute_instance.a10_vthunder :
+    k => try(vm.network_interface[0].access_config[0].nat_ip, null)
+  }
+}
+
 ########################################
 # Network and backend outputs
 ########################################
