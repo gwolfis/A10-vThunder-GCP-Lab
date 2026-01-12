@@ -4,7 +4,7 @@ This module:
 
 * Configures three VPC networks with their own subnets (management, external and internal).
 * Deploys one or two (based upon selection) A10 vThunder instance with three NICs.
-* Deploys a backend Ubuntu VM running a Docker based A10 demo web app.
+* Deploys a backend Ubuntu VM running a Docker based [A10 demo web app](https://github.com/gwolfis/A10-Demo-Container-Web-App).
 * Generates a self signed key and certificate with the `tls` provider.
 * Uploads key and certificate to the A10 via AXAPI.
 * Outputs all relevant IP addresses and handy shortcuts.
