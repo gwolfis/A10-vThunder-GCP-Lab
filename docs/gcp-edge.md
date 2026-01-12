@@ -79,6 +79,3 @@ If you do not see the page:
 confirm gcp-infra and slb-config are deployed
 
 ---
-
----
-**Next:** [failover](failover.md)

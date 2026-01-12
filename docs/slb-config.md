@@ -87,5 +87,3 @@ show pki key
 ```
 
 ---
-
-**Next:** [gcp-edge](gcp-edge.md)

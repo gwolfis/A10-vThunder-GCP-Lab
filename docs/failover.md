@@ -161,4 +161,3 @@ The target field should now reference the other target instance.
 * Health check behaviour is controlled by HEALTH_POLICY (ANY or ALL) and HEALTHCHECK_TOOL (OPENSSL or TCP)
 
 ---
-**Next:** [cleanup](cleanup.md)

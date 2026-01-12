@@ -76,7 +76,3 @@ You should now be able to:
 The A10 already has a self signed certificate and key (`a10demo`) uploaded by Terraform.
 
 ---
-
----
-**Next:** [slb-config](slb-config.md) => for a simple L4-L7 SLB configuration.
-**Next:** [cgp-edge](gcp-edge.md)     => Deploying GCP forwarding rules.

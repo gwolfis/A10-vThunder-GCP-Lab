@@ -1,4 +1,4 @@
-# Getting started
+# 2. Getting started
 
 This guide explains the prerequisites and one time setup you need to run the A10 vThunder ADC lab on Google Cloud with Terraform.
 
@@ -140,5 +140,3 @@ Continue with the next step:
 * [gcp-infra](gcp-infra.md)
 
 ---
-**Next:** [gcp-infra](gcp-infra.md)
-**Previous:** [index](index.md)
