@@ -26,7 +26,7 @@ override.tf.json
 # Keep provider lock file committed
 # !.terraform.lock.hcl
 
-############################################
+#############################################
 # GCP-INFRA
 ############################################
 gcp-infra/.generate/
