@@ -7,6 +7,7 @@
 *.tfplan
 crash.log
 crash.*.log
+*.hcl
 
 # Local variable files can contain secrets
 *.tfvars
@@ -80,3 +81,8 @@ venv/
 Thumbs.db
 .vscode/
 .idea/
+
+############################################
+# ADC
+############################################
+Thunder_shared.txt
