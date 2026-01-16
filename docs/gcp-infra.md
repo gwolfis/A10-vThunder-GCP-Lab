@@ -13,23 +13,22 @@ This module:
 
 This module lets you choose whether to deploy 1 or 2 vThunder ADCs, depending on what you want to test and learn. This is controlled with `adc_count`.
 
-1. Copy the example variables file `terraform.tfvars.example`.
+**1.** Copy the example variables file `terraform.tfvars.example`.
 
-   ```bash
-   cd gcp-infra
-   cp terraform.tfvars.example terraform.tfvars
-   ```
+```bash
+cd gcp-infra
+cp terraform.tfvars.example terraform.tfvars
+```
 
-2. Inside `gcp-infra/terraform.tfvars` set at least:
-   
-  ```hcl
-   project_id   = "a10demo"               # your GCP project ID
-   region       = "europe-west4"
-   zone         = "europe-west4-a"
+**2.** Inside `gcp-infra/terraform.tfvars` set at least:
+```hcl
+project_id   = "a10demo"               # your GCP project ID
+region       = "europe-west4"
+zone         = "europe-west4-a"
 
-   a10_username = "admin"
-   a10_password = "Thunder2025!"
-  ```
+a10_username = "admin"
+a10_password = "Thunder2025!"
+```
 
 You can adjust CIDRs machine types and other variables as needed: check `variables.tf` in `gcp-infra` for the full list.
 
