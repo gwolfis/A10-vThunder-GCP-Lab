@@ -33,7 +33,7 @@ variable "fw_filter" {
 
 variable "max_attempts" {
   type    = number
-  default = 3
+  default = 2
 }
 
 variable "sleep_seconds" {
@@ -43,10 +43,10 @@ variable "sleep_seconds" {
 
 variable "loop_interval_seconds" {
   type    = number
-  default = 30
+  default = 10
 }
 
 variable "cooldown_after_failover_seconds" {
   type    = number
-  default = 180
+  default = 30
 }
