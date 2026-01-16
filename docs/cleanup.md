@@ -4,29 +4,29 @@ This section provides guidance in removing all the deployed resources via Terraf
 
 To remove all resources:
 
-1. In subfolder `failover` (if used):
+**1.** In subfolder `failover` (if used):
 
-   ```bash
-   terraform destroy
-   ```
+```bash
+terraform destroy
+```
 
-2. In `gcp-edge` (if used):
+**2.** In `gcp-edge` (if used):
 
-   ```bash
-   terraform destroy
-   ```
+```bash
+terraform destroy
+```
 
-3. In `slb-config` (if used):
+**3.** In `slb-config` (if used):
 
-   ```bash
-   terraform destroy
-   ```
+```bash
+terraform destroy
+```
 
-4. In `gcp-infra`:
+**4.** In `gcp-infra`:
 
-   ```bash
-   terraform destroy
-   ```
+```bash
+terraform destroy
+```
 
 Note: destroying `gcp-infra` first will break the remote state dependency for the other modules. Objects in GCP might remain in your project and will cost.
 
